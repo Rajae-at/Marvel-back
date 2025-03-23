@@ -18,6 +18,10 @@ app.get("/", (req, res) => {
   res.json("Bienvenue sur l'API de Marvel");
 });
 
+app.all("*", (req, res) => {
+  return res.status(404).json("Not found");
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("🚀 Serveur démarré ");
